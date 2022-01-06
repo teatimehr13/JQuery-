@@ -1,2 +1,2 @@
-# html-css
+# JQuery
 e-classroom
