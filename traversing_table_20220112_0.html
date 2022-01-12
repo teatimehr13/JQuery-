@@ -78,7 +78,7 @@
 
             $(".addBtn").click(function () {
                 console.log('addBtn ok');
-                cloneData = $(this).parentsUntil('form').find('tbody').find('tr').last().clone(true);  //加要true才能clone(copy)到數值
+                cloneData = $(this).parentsUntil('form').find('tbody').find('tr').last().clone(true); //加要true才能clone(copy)到數值
                 // console.log($(this).parentsUntil('form').find('tbody').find('tr').last());
                 $(this).parentsUntil('form').find('tbody').find('tr').last().after(cloneData);
                 
@@ -87,7 +87,7 @@
                 
                 //選擇指定的type text or numrber
                 $(this).parentsUntil('form').find('tbody').find('tr').last().find('input:text').val("");
-                $(this).parentsUntil('form').find('tbody').find('tr').last().find('input:number').val("");
+                // $(this).parentsUntil('form').find('tbody').find('tr').last().find('input:number').val("");
                 $(this).parentsUntil('form').find('tbody').find('tr').last().find('input[type="number"]').val("123");
                 // $(this).parentsUntil('form').find('tbody').find('tr').last().find('input:number').val(0);
             });
