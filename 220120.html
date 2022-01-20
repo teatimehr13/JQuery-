@@ -1,16 +1,73 @@
-<script>
-const myobject0120 = {
-    'name':'amy',
-    'tel':'0204',
-    other:'55688',
-    'address':'losangel'
-}
+<!DOCTYPE html>
+<html lang="en">
 
-console.log('myObj',myobject0120);
-console.log('myObj["name"]',myobject0120["name"]);
-console.log('myObj.name',myobject0120.name);
-console.log('myObj[`${name}`]',myobject0120[`${name}`]);
-console.log('myObj[name]',myobject0120[name]);
-console.log('myObj[other]',myobject0120[other]);
-console.log('myObj["other"]',myobject0120["other"]);
-</script>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+        integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <style>
+        /* css 內 會用; */
+        span {
+            color: red;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="container">
+        <ul id="myUl">
+            <li>55688</li>
+            <li>55688</li>
+            <li>55688</li>
+            <li>55688</li>
+        </ul>
+    </div>
+
+
+
+    <!-- 先載入 -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js"
+        integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2"
+        crossorigin="anonymous"></script>
+    <!-- 先載入 END-->
+
+    <script>
+
+const myobject0120 = {
+            'name': 'amy',
+            'tel': '0204',
+            other: '55688',
+            'address': 'losangel'
+        }
+
+        console.log('myObj', myobject0120);  //Object
+        console.log('myObj["name"]', myobject0120["name"]);  //amy
+        console.log('myObj.name', myobject0120.name);  //amy
+        console.log('myObj[`${name}`]', myobject0120[`${name}`]);  //undefine
+        console.log('myObj[name]', myobject0120[name]);  //undefine
+        console.log('myObj[other]', myobject0120[other]);  //error
+        console.log('myObj["other"]', myobject0120["other"]);  //error
+
+        $(document).ready(function(){
+
+        })
+
+     
+
+
+    </script>
+
+
+</body>
+
+</html>
