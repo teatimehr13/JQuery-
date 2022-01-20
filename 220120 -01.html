@@ -13,13 +13,70 @@
         span {
             color: red;
         }
+
+        .stroked {
+            text-decoration: line-through;
+            color: #ccc;
+        }
     </style>
 
 </head>
 
 <body>
-  
-    
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <p>
+                    FUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUCK
+                </p>
+
+            </div>
+            <div class="col-4">
+                <button type="button" id="hideBtn">hideBtn</button>
+            </div>
+            <div class="col-4">
+                <button type="button" id="showBtn">showBtn</button>
+            </div>
+            <div class="col-4">
+                <button type="button" id="toggleBtn">toggleBtn</button>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-2">
+                <div class="box bg-dark p-5">000</div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-6">
+                <button type="button" id="animateBtn">animateBtn</button>
+                <button type="button" id="stopBtn">stopBtn</button>
+                <button type="button" id="restBtn">restBtn</button>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container"><br><br>
+        <div class="row">
+            <div class="col-12">
+                <p id='callbackP'>
+                    I know I'm probably better off on my own
+                    Than lovin’ a man who didn't know what he had when he had it
+                    And I see the permanent damage you did to me
+                    Never again, I just wish I could forget when it was magic
+                </p>
+                <button type="button" id="callbackBtn">callbackBtn</button>
+            </div>
+        </div>
+
+    </div>
+
 
 
 
@@ -34,9 +91,62 @@
         integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2"
         crossorigin="anonymous"></script>
     <!-- 先載入 END-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
     <script>
+        $(document).ready(function () {
+            $('#hideBtn').on('click', function () {
+                $('p').hide();
+            })
 
+            $('#showBtn').on('click', function () {
+                $('p').show();
+            })
+
+            $('#toggleBtn').on('click', function () {
+                // $('p').fadeTo(2000,0.5);  //半透明的效果
+                $('p').eq(0).toggleClass('stroked');
+
+            })
+
+
+            $('#animateBtn').click(() => {
+                //css 屬性
+                //時間
+                $('.box').animate(
+                    {
+                        width: "2000px",
+                        'background-color': '#ccc',
+                    }, 5000
+                );
+            });
+
+            $('#stopBtn').click(() => {
+                //css 屬性
+                //時間
+                $('.box').stop()
+            });
+
+    
+
+            $('#callbackBtn').click(() => {
+                console.log();
+                $('#callbackP').hide(1000,() => {
+                    alert('55555');
+                })
+            })
+
+            // js時間 js windows.滑鼠座標
+            console.log(new Date($.now()));
+
+            let nowDate = new Date();
+            console.log('nowDate',nowDate);
+            console.log('nowDate',nowDate.getHours());
+            console.log('nowDate',nowDate.getMinutes());
+            console.log('nowDate',nowDate.getSeconds());
+            
+
+        });
 
 
     </script>
