@@ -38,7 +38,7 @@ $(document).ready(function () {
         // console.log('navbar',navbar)
         scrollReport.innerText = `目前所在的位置${y}`;
         console.log(`目前所在的位置${y}`);
-    });
+    
 
     //上面是用原生JS寫的，因為有此物件用JQuery會抓不到，變成undefine
 
@@ -64,5 +64,5 @@ $(document).ready(function () {
     }
 
 
-
+});
 });
