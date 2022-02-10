@@ -1,68 +1,74 @@
 $(document).ready(function () {
-    console.log('hello its me');
+    // console.log('hello main js');
 
-
-    // fetchAll 很多個
+    //fetchAll 很多個
     const navLinkList = document.querySelectorAll('.navbar .nav-link');
-    const navbar = document.getElementById('navbar')
-    const scrollReport = document.getElementById('scrollReport')
+    // console.log('navLinkList', navLinkList);
 
-    // JQuery 宣告抓不到值
-    // const scrollReport = $('#scrollReport');
+    const navbar = document.getElementById('navbar');
+    // console.log('navbar', navbar);
+          
+    const scrollReport = document.getElementById('scrollReport');
+    // console.log('scrollReport', scrollReport);
+
+
+    //透過forEach 取出 navLinkList 所有的dom
     
-
-    console.log(navLinkList,'navLinkList')
-    console.log(navbar,'navbar')
-    console.log(scrollReport,'scrollReport')
-
-
     const navigationTable = {};
 
-    //很多個 所以用foreach
+    //很多個 所以用forEach
     navLinkList.forEach(value => {
-        //value 每一種<a>
-        //console.log('value',value);
-        const sectionId = value.dataset.target;
+        //value 每一個<a>
+        // console.log('value', value);
 
-    navigationTable[sectionId] = {
-        link: value,
-        section: document.getElementById(sectionId)
-        }
+        //data-target="section1"
+        //js dataset
+        const sectionID = value.dataset.target;
+        console.log('sectionID',sectionID);
+
+        navigationTable[sectionID] = {
+            link : value,
+            section : document.getElementById(sectionID)
+        };
+
+        // link:
+        // <a class="nav-link" data-target="section1" href="#section1">Link 1</a>
+        // section:
+        // <section id='section1' class="bg-warning"></section>
     });
 
-    console.log('navigationTable',navigationTable);
+    // console.log('navigationTable', navigationTable);
 
-    window.addEventListener('scroll',function(){
-        console.log('window',window);
+
+
+    window.addEventListener('scroll', function () {
+        // console.log('window',window);
         const y = Math.round(window.scrollY + navbar.offsetHeight);
         // console.log('navbar',navbar)
         scrollReport.innerText = `目前所在的位置${y}`;
-        console.log(`目前所在的位置${y}`);
-    
+        // console.log(`目前所在的位置${y}`);
 
-    //上面是用原生JS寫的，因為有此物件用JQuery會抓不到，變成undefine
+        for (const key in navigationTable) {
+            // console.log('navigationTable[key]',navigationTable[key]);
+            const link = navigationTable[key].link;
+            const section = navigationTable[key].section;
+            // console.log('link',link);
+            // console.log('section',section);
 
-    for (const key in navigationTable){
-        console.log('navigationTable[key]',navigationTable[key]);
-        const link = navigationTable[key].link;
-        const section = navigationTable[key].section;
-        console.log('link',link);
-        console.log('section',section);
+            //section top
+            const top = section.offsetTop;
+            //section bottom
+            const bottom = top + section.offsetHeight; 
 
-        //section top
-        const top = section.offsetTop;
-        //sectoin bottom
-        const bottom = top + section.offsetHeight;
-
-        if(y > top && y < bottom){
-            link.classList.add('text-warning');
-            section.classList.add('is-active');
-        }else{
-            link.classList.remove('text-warning');
-            section.classList.remove('is-active');
+            if(y > top && y < bottom){
+                link.classList.add('text-warning');
+                section.classList.add('is-active');
+            }else{
+                link.classList.remove('text-warning');
+                section.classList.remove('is-active');
+            }
         }
-    }
 
+    });
 
-});
 });
