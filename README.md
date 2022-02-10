@@ -8,4 +8,4 @@
  y220113  ---用JQuery進行資料的篩選 JSON + axios<br>
  y220120  ---animation<br>
  y220127  ---jquery and js 的 scroll 應用 (含data-target) ; api 資料串接 + dataTable 的整合應用<br>
- y220210  ---
+ y220210  ---串api 天氣資料 (ajax)
