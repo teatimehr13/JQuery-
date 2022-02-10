@@ -8,7 +8,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
         integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
-
+    <!-- DataTable-->
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.4/css/jquery.dataTables.css">
 
 
@@ -19,7 +19,7 @@
     <div class="container mt-5">
         <div class="row">
             <div class="col-12">
-                <h3 class="text-center">table天氣資料</h3>
+                <h3 class="text-center">天氣資料</h3>
             </div>
         </div>
     </div>
@@ -62,12 +62,13 @@
         integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2"
         crossorigin="anonymous"></script>
 
+        <!-- 先載入 END-->
+        <!-- <script src="./js/data20220127.js"></script> -->
+
     <!-- datatable 要放在Bootstrap的下面-->
     <script type="text/javascript" charset="utf8"
         src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.js"></script>
 
-    <!-- 先載入 END-->
-    <!-- <script src="./js/data20220127.js"></script> -->
     <script>
 
         $(document).ready(function () {
@@ -124,26 +125,26 @@
                         $('tbody').append(` 
                     <tr>
                         <td>${i+1}</td>
-                        <td>${data[1].locationName}</td>
+                        <td>${data[i].locationName}</td>
 
                         <td>
-                            ${data[1].weatherElement[0].time[0].parameter.parameterName}
-                            ${data[1].weatherElement[2].time[0].parameter.parameterName}-
-                            ${data[1].weatherElement[1].time[0].parameter.parameterName}
+                            ${data[i].weatherElement[0].time[0].parameter.parameterName}
+                            ${data[i].weatherElement[2].time[0].parameter.parameterName}-
+                            ${data[i].weatherElement[1].time[0].parameter.parameterName}
                             &deg;C
                             <img src="./img/${inconText0}/${data[i].weatherElement[0].time[0].parameter.parameterValue}.svg" style="width:3rem ; alt="${data[i].weatherElement[0].time[0].parameter.parameterValue}.svg">
                         </td>
                         <td>
-                            ${data[1].weatherElement[0].time[1].parameter.parameterName}
-                            ${data[1].weatherElement[2].time[1].parameter.parameterName}-
-                            ${data[1].weatherElement[1].time[1].parameter.parameterName}
+                            ${data[i].weatherElement[0].time[1].parameter.parameterName}
+                            ${data[i].weatherElement[2].time[1].parameter.parameterName}-
+                            ${data[i].weatherElement[1].time[1].parameter.parameterName}
                             &deg;C
                             <img src="./img/${inconText1}/${data[i].weatherElement[0].time[0].parameter.parameterValue}.svg" style="width:3rem ; alt="${data[i].weatherElement[0].time[0].parameter.parameterValue}.svg">
                         </td>
                         <td>
-                            ${data[1].weatherElement[0].time[1].parameter.parameterName}
-                            ${data[1].weatherElement[2].time[1].parameter.parameterName}-
-                            ${data[1].weatherElement[1].time[1].parameter.parameterName}
+                            ${data[i].weatherElement[0].time[1].parameter.parameterName}
+                            ${data[i].weatherElement[2].time[1].parameter.parameterName}-
+                            ${data[i].weatherElement[1].time[1].parameter.parameterName}
                             &deg;C
                             <img src="./img/${inconText2}/${data[i].weatherElement[0].time[0].parameter.parameterValue}.svg" style="width:3rem ; alt="${data[i].weatherElement[0].time[0].parameter.parameterValue}.svg">
                         </td>
@@ -157,6 +158,29 @@
                         //data[1]為新北市 [0]為台北市，去json看就會知道
                         //用陣列的邏輯去套
                     }
+
+                    //36hr 氣溫
+                    //三段資料
+                    //12hr /12hr /12hr
+
+                    //新北市?
+
+                    //時間1
+                    //新北市 天氣現象
+                    //新北市 最低溫度
+                    //新北市 最高溫度
+
+                    //時間2
+                    //新北市 天氣現象
+                    //新北市 最低溫度
+                    //新北市 最高溫度
+
+                    //時間3
+                    //新北市 天氣現象
+                    //新北市 最低溫度
+                    //新北市 最高溫度
+
+                    $('#table_id').DataTable();  //從wheather貼過來加這行
                 }
             });
 

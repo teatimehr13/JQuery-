@@ -55,7 +55,7 @@
         integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2"
         crossorigin="anonymous"></script>
 
-    <!-- datatable 要放在Bootstrap的下面-->
+    <!-- datatable -->
     <script type="text/javascript" charset="utf8"
         src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.js"></script>
 
@@ -65,7 +65,49 @@
 
         $(document).ready(function () {
 
-        
+            // console.log('Array.isArray(dataStore)', Array.isArray(dataStore));
+
+            newDataStore = [];
+            dataStore.forEach((value, key) => {
+                if(value.area=='北部'){
+                    newDataStore[key] = { id: value.id, area: '北部67890', district: value.district, name: value.name, address: value.address, tel: value.tel, web: value.web };
+                }else{
+                    newDataStore[key] = { id: value.id, area: value.area, district: value.district, name: value.name, address: value.address, tel: value.tel, web: value.web };
+                }
+            });
+            console.log('newDataStore', newDataStore);
+            console.log('ataStore', dataStore);
+
+            for (const key in dataStore) {
+                if (dataStore[key]['area'] == '北部') {
+                    dataStore[key]['area'] = '北部55688';
+                }
+            }
+
+            // dataStore.forEach(element => {
+
+            // });
+
+            // $('#table_id').DataTable();
+            // $('#table_id').DataTable();
+
+            $('#table_id').DataTable({
+                data: newDataStore,
+                columns: [
+                    { data: 'id' },
+                    { data: 'area' },
+                    { data: 'district' },
+                    { data: 'name' },
+                    { data: 'address' },
+                    { data: 'tel' },
+                    { data: 'web' }
+                ]
+            });
+
+            $('#btn').on('click', function () {
+                console.log('btn ok 0127');
+
+            });
 
         });
 
