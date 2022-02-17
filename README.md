@@ -9,4 +9,4 @@
  y220120  ---animation<br>
  y220127  ---jquery and js 的 scroll 應用 (含data-target) ; api 資料串接 + dataTable 的整合應用<br>
  y220210  ---串api天氣資料 (ajax)<br>
- y220217  ---JS動畫, chartjs (js圖表呈現)
+ y220217  ---JS動畫, chartjs (js圖表呈現),GA代碼放進程式裡
