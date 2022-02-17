@@ -12,13 +12,14 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.4/css/jquery.dataTables.css">
 
     <style>
-        .box1{
+        .box1 {
             background-color: lightgrey;
             width: 300px;
             border: 15px solid green;
             margin: 20px;
+            padding: 50px;
             position: absolute;
-        }
+            }
     </style>
 
 </head>
@@ -33,22 +34,21 @@
     </div>
 
     <div class="container-fluid mt-5">
-      <div class="row">
-          <div class="col-12">
-              <div class="text-center">
-                  <button type="button" class="btn btn-primary" id="myBtn">button</button>
-              </div>
-          </div>
-      </div>
-    </div>
-
-    <div class="container-fluid mt-5">
         <div class="row">
             <div class="col-12">
-               <div class="box1">瞬間移動</div>
+                <div class="text-center">
+                    <button type="button" class="btn btn-primary" id="myBtn">button</button>
+                </div>
             </div>
         </div>
-      </div>
+
+        <div class="row">
+            <div class="col-12">
+                <div class="box1">瞬間移動</div>
+            </div>
+        </div>
+    </div>
+
 
 
 
@@ -72,10 +72,16 @@
 
         $(document).ready(function () {
 
-            $("#myBtn").click(function(){
+            $("#myBtn").click(function () {
                 console.log("myBtn");
-                $('.box1').animate({right:'50px'},3000);
+                $('.box1').animate({right:'50px', opacity:'0.5'},3000);
+                // $('.box1').slideUp(2000).slideDown(2000);
+            //     $(".box1").toggle({
+            //         left: '250px',
+            //         height: '+=150px',
+            //         width: '+=150px'
                 
+            // })
             })
         });
 
