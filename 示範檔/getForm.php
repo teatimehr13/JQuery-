@@ -9,4 +9,5 @@
     // $input = $_GET;
     // dd($input);
     echo json_encode($input);
+    
 ?>
