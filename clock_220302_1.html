@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>clock</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div class="digiImg">
+        <div id='ck1' class="mg1"></div>
+        <div id='ck2' class="mg2"></div>
+        <div class="mgd"></div>
+        <div id='ck3' class="mg3"></div>
+        <div id='ck4' class="mg4"></div>
+        <div class="mgd"></div>
+        <div id='ck5' class="mg5"></div>
+        <div id='ck6' class="mg6"></div>
+
+    </div>
+</body>
+
+<script>
+    // function changeTime() {
+    //     console.log('hello change time')
+    // }
+
+    const changeTime = () => {
+
+        const nt = new Date();
+        const nh = nt.getHours();
+        const nm = nt.getMinutes();
+        const ns = nt.getSeconds();
+
+        // console.log(nh);
+        // console.log(nm);
+        // console.log(ns);
+
+        const nk1 = Math.floor(nh / 10);  //取數字，無條件捨去
+        const nk2 = nh % 10;
+
+        const nk3 = Math.floor(nm / 10);
+        const nk4 = nm % 10;
+
+        const nk5 = Math.floor(ns / 10);
+        const nk6 = ns % 10;
+
+        document.getElementById('ck1').className = `mg${nk1}`;
+        document.getElementById('ck2').className = `mg${nk2}`;
+        document.getElementById('ck3').className = `mg${nk3}`;
+        document.getElementById('ck4').className = `mg${nk4}`;
+        document.getElementById('ck5').className = `mg${nk5}`;
+        document.getElementById('ck6').className = `mg${nk6}`;
+
+        document.querySelectorAll('.mgd')[0].style.opacity=1;
+        document.querySelectorAll('.mgd')[1].style.opacity=1;
+        setTimeout(()=>{
+            document.querySelectorAll('.mgd')[0].style.opacity=0;
+            document.querySelectorAll('.mgd')[1].style.opacity=0;
+        },500);
+    }
+
+    const myMgd=document.querySelectorAll('.mgd');
+
+    setInterval(changeTime, 1000);
+</script>
+
+</html>
